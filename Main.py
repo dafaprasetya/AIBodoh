@@ -3,16 +3,21 @@ import sys
 import time
 import random
 import socket
-import impup
-import tanya
+from Core import impup
+from Core.Lakukan import tanya
 import webbrowser
 from datetime import datetime
+import pytube
 
 
 
+start = "starting system..."
+for a in start:
+    time.sleep(0.1)
+    sys.stdout.write(a)
+    sys.stdout.flush()
 
-
-
+os.system('pip install pytube' if  os.name == 'nt' else 'pip3 install pytube')
 
 os.system("cls" if os.name == 'nt' else 'clear')
 
@@ -25,12 +30,21 @@ now = datetime.now()
 
 waktu = now.strftime("%H:%M \n")
 
-if filesize <= 2:
+if filesize <= 1:
 	user = open('user/user.txt', 'r+')
 
 	nama = input("Masukan Nama : ")
 	user.write(nama)
+
 	user.close()
+	user = open('user/user.txt', 'r')
+	baca = user.read()
+	bacot = 'Hi {} Welcome^-^\n'.format(baca)
+	for ba in bacot:
+		time.sleep(0.1)
+		sys.stdout.write(ba)
+		sys.stdout.flush()
+
 else:
     user = open('user/user.txt','r')
     b = user.read()
@@ -51,6 +65,9 @@ def Main():
 	hai = input(">>")
 	if hai == "whoami":
 		impup.whoami()
+		Main()
+	if hai == "clear":
+		os.system("cls" if os.name == 'nt' else 'clear')
 		Main()
 	if hai == "help":
 		impup.help()
@@ -107,6 +124,10 @@ def Main():
 		rjkm = random.choice(tanya.jktau)
 		print(rjkm)
 		a = input("apa harus aku tulis di memori ku?")
+	if hai == 'youtube downloader':
+		print('YouTube Downloader')
+		url = input('masukan url : ')
+		impup.downloader(url)
 	else :
 		os.system('color 3' if os.name == 'nt' else '')
 		rjels = random.choice(tanya.jrels)
