@@ -25,7 +25,7 @@ now = datetime.now()
 
 waktu = now.strftime("%H:%M \n")
 
-if filesize == 0:
+if filesize <= 2:
 	user = open('user/user.txt', 'r+')
 
 	nama = input("Masukan Nama : ")
